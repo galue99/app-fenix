@@ -15,12 +15,12 @@ var eventos = [
 ];
 
 app.set('port', (process.env.PORT || 5000));
-app.use('/', express.static('../app/'));
+app.use(express.static(__dirname + '../app'));
 
 
-app.get('/', function(){
-	
-})
+app.get('/', function(request, response) {
+  response.send('Hello World!');
+});
 
 var eventos = [
 

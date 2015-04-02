@@ -1,10 +1,7 @@
-var express = require('express'),
-    io = require('socket.io'),
-    http = require('http'),
-    app = express(),
-    server = http.createServer(app),
-    io = io.listen(server);
-
+var express = require('express');
+var app     = express();
+var server  = require('http').createServer(app);
+var io      = require('socket.io').listen(server);
 
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
@@ -14,7 +11,8 @@ var eventos = [
 
 ];
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
+app.use('/bower_components', express.static('bower_components/'));
 app.use(express.static('app/'));
 
 var eventos = [
@@ -39,6 +37,6 @@ app.post('/eventos', jsonParser, function (req, res) {
     return res.sendStatus(200);
 });
 
-app.listen(app.get('port'), function() {
+server.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
 });

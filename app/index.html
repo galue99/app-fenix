@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="fenix">
+<html ng-app="realtimeData">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +9,13 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<h1>Hello</h1>
 	<div ng-view></div>
 
 	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/angular/angular-route.js"></script>
-	<script src="js/app.js"></script>	
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="js/app.js"></script>
+
+	<script src="js/Tickets.js"></script>	
 </body>
 </html>

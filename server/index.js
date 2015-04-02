@@ -18,6 +18,10 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/', express.static('../app/'));
 
 
+app.get('/', function(){
+	
+})
+
 var eventos = [
 
 ];

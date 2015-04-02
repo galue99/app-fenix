@@ -1,22 +1,44 @@
-var express = require('express'),
-    io = require('socket.io'),
-    http = require('http'),
-    app = express(),
-    server = http.createServer(app),
-    io = io.listen(server);
+var express = require('express');
 
-app.set('port', (process.env.PORT || 5000));
+var app = express();
+/*app.use('/', express.static('../app/'));
+app.use('/bower_components', express.static('../bower_components/'));
+*/
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-app.use(express.static(__dirname + '/public'));
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
+var urlencodedParser = app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/', function(request, response) {
-  response.send('Hello World!');
+var eventos = [
+
+];
+
+
+app.get('/', function (req, res) {
+    res.send('Hello World');
 });
 
-app.get('/incidente', function(req, res){
-	res.send('Hello World');
+app.get('/eventos', function (req, res) {
+    'use strict';
+    
+    res.send(eventos);
 });
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'));
+app.post('/eventos', jsonParser, function (req, res) {
+    'use strict';
+    
+    if (!req.body) {
+        return res.sendStatus(400);
+    }
+    eventos.push(req.body);
+
+    io.emit('evento', req.body);
+    return res.sendStatus(200);
+});
+
+http.listen(3000, function () {
+    'use strict';
+    console.log('Connect to port 3000');
 });

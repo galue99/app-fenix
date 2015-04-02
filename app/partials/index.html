@@ -1,0 +1,49 @@
+<section class="content">
+	<div class="col-lg-2 col-xs-4">
+        <div class="col-lg-12 col-xs-12 pull-right spacing-buttons" style="padding-top:4px">
+            <a class="btn btn-success btn-lg btn-block" ng-click="notify()" role="button" target="_blank">
+                <i class="glyphicon glyphicon-floppy-saved"></i><br>Notificación
+            </a>
+        </div>
+        <div class="col-lg-12 col-xs-12 pull-right spacing-buttons" style="padding-top:4px">
+            <a class="btn btn-danger btn-lg btn-block" role="button" target="_blank">
+                <i class="glyphicon glyphicon-remove"></i><br>Otro
+            </a>
+        </div><!-- ./col -->
+        <div class="col-lg-12 col-xs-12 pull-right spacing-buttons" style="padding-top:4px">
+            <a class="btn btn-primary btn-lg btn-block" role="button" target="_blank">
+                <i class="glyphicon glyphicon-new-window"></i><br>Otro
+            </a>
+        </div>
+	</div>
+	<div class="col-lg-8 col-xs-8">
+		<div ng-hide="notify()">
+			<fieldset>
+				<legend>title or explanatory caption</legend>
+					<div class="col-lg-2 col-xs-4">
+				        <div class="col-lg-12 col-xs-12 pull-right spacing-buttons" style="padding-top:4px">
+				            <a class="btn btn-success btn-lg btn-block" href="#/ficha" role="button">
+				                <i class="glyphicon glyphicon-phone"></i>
+				            </a>
+				        </div>
+				        <div class="col-lg-12 col-xs-12 pull-right spacing-buttons" style="padding-top:4px">
+				            <a class="btn btn-danger btn-lg btn-block" role="button" target="_blank">
+				                <i class="glyphicon glyphicon-remove"></i>
+				            </a>
+				        </div><!-- ./col -->
+				        <div class="col-lg-12 col-xs-12 pull-right spacing-buttons" style="padding-top:4px">
+				            <a class="btn btn-primary btn-lg btn-block" role="button" target="_blank">
+				                <i class="glyphicon glyphicon-new-window"></i>
+				            </a>
+				        </div>
+					</div>
+			</fieldset>
+		</div>
+	</div>
+</section>
+
+<section class="content">
+	<article class="col-xs-12">
+		{{eventos}}
+	</article>
+</section>

@@ -12,7 +12,7 @@ var tickets = [
 ];
 
 app.set('port', (process.env.PORT || 3000));
-app.use('/bower_components', express.static('../bower_components/'));
+app.use('/bower_components', express.static('bower_components/'));
 app.use(express.static('app/'));
 
 var tickets = [

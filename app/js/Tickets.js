@@ -1,7 +1,7 @@
 angular.module('realtimeData.data', ['ngResource']).factory('Tickets', ['$resource', function($resource) {
     'use strict';
     
-    var server = $resource('/eventos');
+    var server = $resource('/tickets');
     
     return {
         save: function (newTicket) {
@@ -9,6 +9,7 @@ angular.module('realtimeData.data', ['ngResource']).factory('Tickets', ['$resour
         },
         
         query: function () {
+            //console.log(server.query());
             return server.query();
         }
     };

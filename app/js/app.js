@@ -2,31 +2,52 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
     .controller('DashboardCtrl', ['$scope', 'Tickets', 'socketio', function ($scope, Tickets, socketio) {
         'use strict';
         
-        $scope.eventos = Tickets.query();
+        $scope.tickets = Tickets.query();
         
-        socketio.on('evento', function (msg) {
-            $scope.eventos.push(msg);
+        socketio.on('ticket', function (msg) {
+                //console.log(msg);
+            $scope.tickets.push(msg);
         });
     }])
     .controller('CreateCtrl', ['$scope', '$location', 'Tickets', function ($scope, $location, Tickets) {
         'use strict';
 
-        $scope.save = function (newTicket) {
-            Tickets.save(newTicket);
-            $location.path('/');
+        $scope.master = {};
+
+        $scope.show = true;
+
+        $scope.toggle = function() {
+            $scope.show = !$scope.show;
         };
 
+        $scope.update = function(user) {
+            $scope.master = angular.copy(user);
+        };
+
+        $scope.reset = function() {
+            $scope.user = angular.copy($scope.master);
+        };
+
+        $scope.showDate = function () {
+                $scope.date = 0;
+                $scope.date = Date.now();
+            return $scope.date;
+        };
+
+        $scope.reset();
+
+        $scope.newTicket = {
+        };
+
+        $scope.save = function (user) {
+            console.log(user.fecha);
+            Tickets.save(user);
+            $location.path('/');
+        };
 
         $scope.cancel = function () {
             $location.path('/');
         };
-
-    }])
-    .controller('NotifyCtrl', ['$scope', '$location', 'Tickets', function ($scope, $location, Tickets) {
-        'use strict';
-        var notify = true;
-
-        $scope.eventos = Tickets.query();
 
     }])
     .config(['$routeProvider', function ($routeProvider) {
@@ -34,12 +55,12 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
         
         $routeProvider
             .when('/', {
-                controller: 'NotifyCtrl',
+                controller: 'DashboardCtrl',
                 templateUrl: 'partials/index.html'
             })
             .when('/ficha', {
                 controller: 'CreateCtrl',
-                templateUrl: 'partials/ficha.html'
+                templateUrl: 'partials/ficha1.html'
             })
             .otherwise({
                 redirectTo: '/'

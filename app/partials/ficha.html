@@ -2,30 +2,30 @@
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-lg-3 col-xs-6 pull-left">
+            <div class="col-lg-3 col-xs-12 pull-left">
                 <div class="id_p">
                     <p><b>ID Evento #000001<b></p>
                     <p><i class="glyphicon glyphicon-calendar"></i><span><span></span><b>Fecha y Hora Actual: </b>30/03/2015  02:57 pm </span></p>
                 </div>
             </div>
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-12">
                 <div class="">
                     <label for="year" class="control-label input-group">Tipo de Evento</label>
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default active">
-                            <input type="radio" name="tipo_evento" ng-model="newTicket.tipo_evento" value="incidente">Incidente
+                            <input type="radio" name="tipo_evento" ng-model="newTicket.tipo_evento" value="incidente" checked>Incid.
                         </label>
                         <label class="btn btn-default">
-                            <input type="radio" name="tipo_evento"  ng-model="newTicket.tipo_evento" value="falso">Falso
+                            <input type="radio" name="tipo_evento1" ng-model="newTicket.tipo_evento" value="falso">Falso
                         </label>
                         <label class="btn btn-default">
-                            <input type="radio" name="tipo_evento"  ng-model="newTicket.tipo_evento" value="consulta" checked="">Consulta
+                            <input type="radio" name="tipo_evento2"  ng-model="newTicket.tipo_evento" value="consulta">Consulta
                         </label>
                         <label class="btn btn-default">
-                            <input type="radio" name="tipo_evento"  ng-model="newTicket.tipo_evento" value="perdida" checked="">Perdida
+                            <input type="radio" name="tipo_evento3"  ng-model="newTicket.tipo_evento" value="perdida">Perdida
                         </label>
                     </div>
-                </div>
+                </div>{{newTicket.tipo_evento | json}}
             </div>
                         <div class="col-lg-2 col-xs-6 pull-right spacing-buttons" style="padding-top:4px">
                             <a class="btn btn-success btn-lg btn-block" ng-click="save(newTicket)" role="button">
@@ -37,7 +37,7 @@
                                 <i class="glyphicon glyphicon-remove"></i><br>Anular
                             </a>
                         </div><!-- ./col -->
-                        <div class="col-lg-2 col-xs-12 pull-right spacing-buttons" style="padding-top:4px">
+                        <div class="col-lg-2 col-xs-12 pull-right" style="padding-top:4px">
                             <a class="btn btn-primary btn-lg btn-block" role="button">
                                 <i class="glyphicon glyphicon-new-window"></i><br>Nuevo QTM
                             </a>
@@ -148,7 +148,7 @@
                                                     </label></p>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6 col-xs-4">
+                                            <div class="col-sm-6 col-xs-8">
                                                 <div class="col-xs-12 text-center">
                                                 <label for="denunciante" class="text-center">Tipo de Denunciante:</label>
                                                 <p><div class="btn-group" data-toggle="buttons">
@@ -161,7 +161,7 @@
                                                 </div></p>
                                             </div>
                                             </div>
-                                            <div class="col-sm-4 col-xs-4">
+                                            <div class="col-sm-4 col-xs-12">
                                                 <div class="col-xs-12 text-center">
                                                     <div class="form-group">
                                                         <p>

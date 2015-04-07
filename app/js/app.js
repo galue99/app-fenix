@@ -65,6 +65,11 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
             .otherwise({
                 redirectTo: '/'
             });
+	    
+	$locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
     }])
     .filter('reverse', function () {
         'use strict';

@@ -50,7 +50,7 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
         };
 
     }])
-    .config(['$routeProvider', function ($routeProvider) {
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         'use strict';
         
         $routeProvider
@@ -65,8 +65,7 @@ angular.module('realtimeData', ['ngRoute', 'realtimeData.data'])
             .otherwise({
                 redirectTo: '/'
             });
-	    
-	$locationProvider.html5Mode({
+        $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
         });
